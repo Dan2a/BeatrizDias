@@ -28,17 +28,43 @@ body {
   padding-top: 50px;
 }
 
+.profile-picture {
+  position: relative;
+  margin-top: 80px;
+  margin-bottom: 35px;
+  filter: drop-shadow(0px 8px 15px var(--cor-sombra));
+}
+
+.circulo-decorativo {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  background-color: #e6dcbc;
+  border-radius: 50%;
+  z-index: 0;
+  box-shadow: 0 0 10px var(--cor-sombra);
+  animation: zoomFadeIn 1s ease forwards;
+  transform-origin: center center;
+  opacity: 0; /* começa invisível */
+  transform: scale(0.10);
+}
+
 .profile-picture img {
+  position: relative;
+  z-index: 1;
   width: 180px;
   height: 180px;
   border-radius: 50%;
   background-color: var(--cor-texto);
   border: 6px solid var(--cor-card);
-  box-shadow: 0 0 10px var(--cor-sombra);
-  margin-bottom: 30px;
+  animation: zoomFadeIn 1s ease forwards;
+  transform-origin: center center;
+  opacity: 0; /* começa invisível */
+  transform: scale(0.8);
 }
 
-/* Estilo dos cards */
 .card {
   width: 80%;
   max-width: 300px;
@@ -48,9 +74,10 @@ body {
   text-align: center;
   box-shadow: 2px 2px 6px var(--cor-sombra);
   transition: background-color 0.3s ease;
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0
 }
 
-/* Estilo do link como botão */
 .card a {
   display: block;
   width: 100%;
@@ -68,4 +95,117 @@ body {
 
 .card a:hover {
   transform: scale(1.02);
+}
+
+.ondaTop,
+.ondaBottom {
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.ondaTop {
+  top: 0;
+  left: 0;
+}
+
+.ondaTop img {
+  animation: slideFromTop 1s ease-out forwards;
+}
+
+.ondaTop .top1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  max-width: 700px;
+  filter: drop-shadow(0px 0px 10px var(--cor-sombra));
+}
+
+.ondaTop .top2 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50%;
+  max-width: 500px;
+  filter: drop-shadow(0px 0px 10px var(--cor-sombra));
+  animation-delay: 0.3s;
+}
+
+.ondaBottom {
+  bottom: 0;
+  right: 0;
+}
+
+.ondaBottom img {
+  animation: slideFromBottom 1s ease-out forwards;
+}
+
+.ondaBottom .bottom1 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  max-width: 700px;
+  filter: drop-shadow(0px 0px 10px var(--cor-sombra));
+
+}
+
+.ondaBottom .bottom2 {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 50%;
+  max-width: 500px;
+  filter: drop-shadow(0px 0px 10px var(--cor-sombra));
+  animation-delay: 0.3s;
+}
+
+
+/* Animação topo: de cima para posição original */
+@keyframes slideFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animação bottom: de baixo para posição original */
+@keyframes slideFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes para zoom + fade in da imagem */
+@keyframes zoomFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

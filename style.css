@@ -1,0 +1,71 @@
+:root {
+  --cor-fundo: #bfcb99;
+  --cor-card: #e6d6a3;
+  --cor-texto: #ffffff;
+  --cor-sombra: rgba(0, 0, 0, 0.1);
+  --cor-hover: #d4c28b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--cor-fundo);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: var(--cor-texto);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.profile-picture img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-color: var(--cor-texto);
+  border: 6px solid var(--cor-card);
+  box-shadow: 0 0 10px var(--cor-sombra);
+  margin-bottom: 30px;
+}
+
+/* Estilo dos cards */
+.card {
+  width: 80%;
+  max-width: 300px;
+  background-color: var(--cor-card);
+  margin: 10px 0;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 6px var(--cor-sombra);
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo do link como botão */
+.card a {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  text-decoration: none;
+  color: var(--cor-texto);
+  font-weight: 600;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  background-color: var(--cor-hover);
+}
+
+.card a:hover {
+  transform: scale(1.02);
+}
